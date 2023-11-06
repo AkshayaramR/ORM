@@ -15,6 +15,9 @@ Clone the problem from GitHub
 
 ### STEP 2:
 Create a new app in Django project
+from django.contrib import admin
+from .models import footballPlayer,footballPlayerAdmin
+admin.site.register(footballPlayer,footballPlayerAdmin)
 
 ### STEP 3:
 Enter the code for admin.py and models.py
@@ -23,6 +26,26 @@ Enter the code for admin.py and models.py
 Execute Django admin and create 10 Football players
 
 ## PROGRAM
+```
+models.py
+
+from django.db import models
+from django.contrib import admin
+class footballPlayer (models.Model):
+    noofplayers=models.IntegerField()
+    nameoftheplayer=models.CharField(max_length=10)
+    noofteams=models.IntegerField()
+    noofgoals=models.IntegerField()
+
+class footballPlayerAdmin(admin.ModelAdmin):
+    list_display=('noofplayers','nameoftheplayer','noofteams','noofgoals')
+admin.py
+
+from django.contrib import admin
+from .models import footballPlayer,footballPlayerAdmin
+admin.site.register(footballPlayer,footballPlayerAdmin)
+
+```
 
 Include your code here
 
